@@ -1,2 +1,2 @@
-# GWJ-68
-A game for the Godot Wild Jam #68
+# GWJ-69
+A game for the Godot Wild Jam #69
