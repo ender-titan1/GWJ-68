@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fj3g56sum4fv"
-path="res://.godot/imported/floor_tiles1.png-56be3fb03754328a278da4ec13d7ad58.ctex"
+uid="uid://dyk3jlrtdcikn"
+path="res://.godot/imported/atlas_floor.png-837d28038d1befeadf047369a730bc8f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/images/floor_tiles1.png"
-dest_files=["res://.godot/imported/floor_tiles1.png-56be3fb03754328a278da4ec13d7ad58.ctex"]
+source_file="res://assests/tilesets/atlas_floor.png"
+dest_files=["res://.godot/imported/atlas_floor.png-837d28038d1befeadf047369a730bc8f.ctex"]
 
 [params]
 
