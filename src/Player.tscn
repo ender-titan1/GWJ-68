@@ -15,27 +15,10 @@
 [ext_resource type="Texture2D" uid="uid://db4vukmlseirw" path="res://assests/images/player_anim/player_up4.png" id="13_0kaa4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sq3eb"]
-size = Vector2(16, 16)
+size = Vector2(16, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1tk47"]
 animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_xwk3o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_tt1bv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_kgssp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_tk4b6")
-}],
-"loop": true,
-"name": &"walking",
-"speed": 8.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("6_xyu2h")
@@ -52,6 +35,23 @@ animations = [{
 "loop": true,
 "name": &"walking_down",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_xwk3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tt1bv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_kgssp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_tk4b6")
+}],
+"loop": true,
+"name": &"walking_side",
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -80,4 +80,4 @@ shape = SubResource("RectangleShape2D_sq3eb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1tk47")
-animation = &"walking_down"
+animation = &"walking_side"
