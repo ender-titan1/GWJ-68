@@ -15,8 +15,10 @@ func _physics_process(_delta):
 	
 	if dir == Vector2.RIGHT:
 		$AnimatedSprite2D.play("walking_side")
+		$AnimatedSprite2D.flip_h = false
 	elif dir == Vector2.LEFT:
 		$AnimatedSprite2D.play("walking_side")
+		$AnimatedSprite2D.flip_h = true
 	elif dir == Vector2.UP:
 		$AnimatedSprite2D.play("walking_up")
 	elif dir == Vector2.DOWN:
