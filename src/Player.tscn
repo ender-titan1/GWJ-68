@@ -72,13 +72,13 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_j8ymr"]
-offsets = PackedFloat32Array(0, 0.642857)
+offsets = PackedFloat32Array(0.184524, 0.642857)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_atjcq"]
 gradient = SubResource("Gradient_j8ymr")
-width = 1920
-height = 1920
+width = 960
+height = 960
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(1, 1)
@@ -103,8 +103,10 @@ animation = &"walking_side"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-2, 1)
+energy = 0.3
 shadow_enabled = true
 shadow_filter = 1
+shadow_filter_smooth = 2.0
 texture = SubResource("GradientTexture2D_atjcq")
 
 [node name="CharacterLight" type="PointLight2D" parent="."]
