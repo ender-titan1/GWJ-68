@@ -1,10 +1,10 @@
 [gd_scene load_steps=20 format=3 uid="uid://dknboq6y3rert"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_n1n7r"]
-[ext_resource type="Texture2D" uid="uid://b5qjc5iw1vf38" path="res://assests/images/player_anim/player_side1.png" id="2_xwk3o"]
-[ext_resource type="Texture2D" uid="uid://mqs5klr8w3ca" path="res://assests/images/player_anim/player_side2.png" id="3_tt1bv"]
-[ext_resource type="Texture2D" uid="uid://c22o4mbn34nvd" path="res://assests/images/player_anim/player_side3.png" id="4_kgssp"]
-[ext_resource type="Texture2D" uid="uid://pb452jlx2ruj" path="res://assests/images/player_anim/player_side4.png" id="5_tk4b6"]
+[ext_resource type="Texture2D" uid="uid://gjabf0rliv7h" path="res://assests/images/player_anim/walking/pixil-frame-0.png" id="2_05xeo"]
+[ext_resource type="Texture2D" uid="uid://w1pd3orkcsio" path="res://assests/images/player_anim/walking/pixil-frame-1.png" id="3_yehav"]
+[ext_resource type="Texture2D" uid="uid://oepcmm4mce5j" path="res://assests/images/player_anim/walking/pixil-frame-2.png" id="4_3u0u3"]
+[ext_resource type="Texture2D" uid="uid://byxqoq3160jlt" path="res://assests/images/player_anim/walking/pixil-frame-3.png" id="5_egacb"]
 [ext_resource type="Texture2D" uid="uid://ddpvf5cpbux1e" path="res://assests/images/player_anim/player_down1.png" id="6_xyu2h"]
 [ext_resource type="Texture2D" uid="uid://cln82xrc6xhv6" path="res://assests/images/player_anim/player_down2.png" id="7_nfek0"]
 [ext_resource type="Texture2D" uid="uid://b6rlje067n6ia" path="res://assests/images/player_anim/player_down3.png" id="8_bgccj"]
@@ -21,6 +21,23 @@ size = Vector2(16, 30)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("2_05xeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_yehav")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3u0u3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_egacb")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("6_xyu2h")
 }, {
 "duration": 1.0,
@@ -35,23 +52,6 @@ animations = [{
 "loop": true,
 "name": &"walking_down",
 "speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_xwk3o")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_tt1bv")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_kgssp")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_tk4b6")
-}],
-"loop": true,
-"name": &"walking_side",
-"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -99,7 +99,7 @@ shape = SubResource("RectangleShape2D_sq3eb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 sprite_frames = SubResource("SpriteFrames_1tk47")
-animation = &"walking_side"
+animation = &"walking"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-2, 1)
