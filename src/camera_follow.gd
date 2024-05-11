@@ -1,7 +1,5 @@
 extends Camera2D
-@onready var Player 
-
-var move_dist = Vector2(0.0, 0.0)
+@onready var Player = $"../CharacterBody2D"
 
 
 func _ready():
@@ -9,5 +7,8 @@ func _ready():
 
 
 func _process(delta):
-	#move_dist = camera.global_position
-	pass
+	self.global_position = Player.global_position
+	if self.global_position.x < 0:
+		self.global_position.x = 0
+	if self.global_position.y < 0:
+		self.global_position.y = 0
