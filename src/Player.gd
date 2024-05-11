@@ -3,8 +3,8 @@ extends CharacterBody2D
 @export var speed: float = 50.0
 
 func _physics_process(_delta):
-	var x_axis = Input.get_axis("ui_left", "ui_right")
-	var y_axis = Input.get_axis("ui_up", "ui_down")
+	var x_axis = Input.get_axis("player_move_left", "player_move_right")
+	var y_axis = Input.get_axis("player_move_up", "player_move_down")
 	var dir := Vector2(x_axis, y_axis)
 	
 	# set velocity
