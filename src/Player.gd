@@ -22,3 +22,5 @@ func _process(delta: float) -> void:
 	elif move == Vector2(0,-1):
 		#player moving down
 		print('down')
+		
+		
