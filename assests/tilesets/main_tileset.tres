@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://4oe0bsyb8e6g"]
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://4oe0bsyb8e6g"]
 
 [ext_resource type="Texture2D" uid="uid://fj3g56sum4fv" path="res://assests/images/floor_tiles1.png" id="1_q7e2v"]
 [ext_resource type="Texture2D" uid="uid://dp5276agpl6yf" path="res://assests/images/Square.png" id="1_sgoqw"]
@@ -21,17 +21,22 @@ texture_region_size = Vector2i(32, 32)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_e7n8q"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ghdy8"]
 texture = ExtResource("1_sgoqw")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/modulate = Color(0, 0, 0, 1)
+0:0/0/occlusion_layer_0/polygon = SubResource("OccluderPolygon2D_e7n8q")
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [resource]
 tile_size = Vector2i(32, 32)
+occlusion_layer_0/light_mask = 1
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_jxp0r")
 sources/3 = SubResource("TileSetAtlasSource_kld8j")

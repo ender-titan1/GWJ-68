@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dknboq6y3rert"]
+[gd_scene load_steps=20 format=3 uid="uid://dknboq6y3rert"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_n1n7r"]
 [ext_resource type="Texture2D" uid="uid://b5qjc5iw1vf38" path="res://assests/images/player_anim/player_side1.png" id="2_xwk3o"]
@@ -71,6 +71,24 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_j8ymr"]
+offsets = PackedFloat32Array(0, 0.642857)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_atjcq"]
+gradient = SubResource("Gradient_j8ymr")
+width = 1920
+height = 1920
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_ai8xt"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_h3855"]
+gradient = SubResource("Gradient_ai8xt")
+
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 1
 script = ExtResource("1_n1n7r")
@@ -79,5 +97,16 @@ script = ExtResource("1_n1n7r")
 shape = SubResource("RectangleShape2D_sq3eb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 2
 sprite_frames = SubResource("SpriteFrames_1tk47")
 animation = &"walking_side"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-2, 1)
+shadow_enabled = true
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_atjcq")
+
+[node name="CharacterLight" type="PointLight2D" parent="."]
+range_item_cull_mask = 2
+texture = SubResource("GradientTexture2D_h3855")

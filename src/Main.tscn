@@ -1,13 +1,25 @@
-[gd_scene load_steps=4 format=3 uid="uid://cv1oxsg816gik"]
+[gd_scene load_steps=6 format=3 uid="uid://cv1oxsg816gik"]
 
 [ext_resource type="TileSet" uid="uid://4oe0bsyb8e6g" path="res://assests/tilesets/main_tileset.tres" id="2_ijvnj"]
 [ext_resource type="Script" path="res://src/camera_follow.gd" id="3_7uhex"]
 [ext_resource type="PackedScene" uid="uid://dknboq6y3rert" path="res://src/Player.tscn" id="3_hfxqu"]
 
+[sub_resource type="Gradient" id="Gradient_di71a"]
+offsets = PackedFloat32Array(0, 0.625)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cb647"]
+gradient = SubResource("Gradient_di71a")
+width = 640
+height = 640
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Main" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_hfxqu")]
-position = Vector2(46, 120)
+light_mask = 1
+position = Vector2(106, 232)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource("2_ijvnj")
@@ -17,3 +29,14 @@ layer_0/tile_data = PackedInt32Array(65536, 2, 0, 131072, 2, 0, 196608, 2, 0, 26
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
 script = ExtResource("3_7uhex")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(-3, 0)
+color = Color(0, 0, 0, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(511, 501)
+energy = 2.0
+shadow_enabled = true
+shadow_item_cull_mask = 3
+texture = SubResource("GradientTexture2D_cb647")
