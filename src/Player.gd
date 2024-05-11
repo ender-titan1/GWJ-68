@@ -14,21 +14,16 @@ func _physics_process(_delta):
 	move_and_slide()
 	
 	if dir == Vector2.RIGHT:
-		# player moving right
-		print('right')
-		#flip.h = false
+		$AnimatedSprite2D.play("walking")
+		$AnimatedSprite2D.flip.h = false
 	elif dir == Vector2.LEFT:
-		# player moving left
-		print('left')
-		#flip.h = true
+		$AnimatedSprite2D.play("walking")
+		$AnimatedSprite2D.flip.h = true
 	elif dir == Vector2.UP:
-		# player moving up
-		print('up')
+		$AnimatedSprite2D.play("walking_up")
 	elif dir == Vector2.DOWN:
-		#player moving down
-		print('down')
+		$AnimatedSprite2D.play("walking_down")
 		
-	# stop all animations
 	if dir == Vector2.ZERO:
-		print('stop')
+		$AnimatedSprite2D.stop()
 		
