@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://db4vukmlseirw" path="res://assests/images/player_anim/player_up4.png" id="13_0kaa4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sq3eb"]
-size = Vector2(16, 32)
+size = Vector2(16, 30)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1tk47"]
 animations = [{
