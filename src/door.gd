@@ -9,7 +9,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
-
-
-func _on_player_detect_body_entered(body):
-	if body.name == "Player":
+		
+func _init(event):
+	if Input.is_action_just_pressed("player_interact"):
+		print('door open')
