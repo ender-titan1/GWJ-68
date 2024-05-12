@@ -50,7 +50,7 @@ func generate_texture():
 	vision_cone.texture = texture
 
 func _process(delta):
-	var spotted = player_spotted()
+	var spotted = player_in_cone() && line_of_sight(player.get_node("CollisionShape2D"))
 	
 	if spotted:
 		vision_cone.material.set_shader_parameter("color", Color.RED)
@@ -58,7 +58,6 @@ func _process(delta):
 		vision_cone.material.set_shader_parameter("color", Color.AQUA)
 	
 func _physics_process(delta):
-	
 	# Update the shader's position 
 	vision_cone.material.set_shader_parameter("pos", position)
 	
@@ -67,7 +66,7 @@ func _physics_process(delta):
 	forward_vector = Vector2(cos(forward_radians), sin(forward_radians))
 	vision_cone.material.set_shader_parameter("fwd_vec", forward_vector)
 	
-func player_spotted() -> bool:
+func player_in_cone() -> bool:
 	var player_pos = player.position
 	var dist = player_pos.distance_to(position)
 	
@@ -84,3 +83,16 @@ func player_spotted() -> bool:
 	var angle = acos(dot / 1)
 	
 	return angle <= max_radians
+	
+func line_of_sight(target: CollisionShape2D):
+	var world = get_world_2d().direct_space_state
+	var query = PhysicsRayQueryParameters2D.create(global_position, target.global_position)
+	var result = world.intersect_ray(query)
+	
+	print(result.collider)
+	
+	if result:
+		var collider = result.collider
+		return collider == target
+	
+	return false

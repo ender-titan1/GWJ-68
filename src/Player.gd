@@ -8,7 +8,7 @@ func _physics_process(delta):
 	var dir := Vector2(x_axis, y_axis)
 	
 	# set velocity
-	velocity = dir * (speed * 1+delta)
+	velocity = dir * (speed * (1+delta))
 	
 	# call move_and_slide to collide with the walls
 	move_and_slide()

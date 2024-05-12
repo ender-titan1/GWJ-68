@@ -25,7 +25,7 @@ gradient = SubResource("Gradient_7mjwi")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_afgy7"]
 shader = ExtResource("5_6m6pc")
-shader_parameter/pos = Vector2(87, 147)
+shader_parameter/pos = Vector2(111, 196)
 shader_parameter/fwd_vec = Vector2(1, 0)
 shader_parameter/rads = 0.405
 shader_parameter/range = 20.0
@@ -92,7 +92,7 @@ range_item_cull_mask = 4
 texture = SubResource("GradientTexture2D_1c2fa")
 
 [node name="CharacterBody2D2" type="CharacterBody2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(87, 147)
+position = Vector2(111, 196)
 script = ExtResource("4_7mueo")
 player = NodePath("../CharacterBody2D")
 vision_range = 60.0
