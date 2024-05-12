@@ -38,9 +38,10 @@ shader = ExtResource("5_6m6pc")
 shader_parameter/pos = Vector2(87, 147)
 shader_parameter/fwd_vec = Vector2(1, 0)
 shader_parameter/rads = 1.0
+shader_parameter/range = null
 
 [sub_resource type="Gradient" id="Gradient_j2klx"]
-offsets = PackedFloat32Array(0, 0.654762)
+offsets = PackedFloat32Array(0, 0.52381)
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_s3327"]

@@ -35,8 +35,9 @@ func player_spotted() -> bool:
 		draw_line(Vector2.ZERO, player_pos - position, Color.RED)
 	else:
 		draw_line(Vector2.ZERO, player_pos - position, Color.GREEN)
-		
-	return true
 	
+	return true
+
 func _draw():
 	player_spotted()
+	
