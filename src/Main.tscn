@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cv1oxsg816gik"]
+[gd_scene load_steps=16 format=3 uid="uid://cv1oxsg816gik"]
 
 [ext_resource type="TileSet" uid="uid://4oe0bsyb8e6g" path="res://assests/tilesets/main_tileset.tres" id="2_ijvnj"]
 [ext_resource type="Script" path="res://src/camera_follow.gd" id="3_7uhex"]
 [ext_resource type="PackedScene" uid="uid://dknboq6y3rert" path="res://src/Player.tscn" id="3_hfxqu"]
+[ext_resource type="Script" path="res://src/patrol.gd" id="4_7mueo"]
+[ext_resource type="Shader" path="res://src/light_cone.gdshader" id="5_6m6pc"]
 
 [sub_resource type="Gradient" id="Gradient_di71a"]
 offsets = PackedFloat32Array(0, 0.625)
@@ -20,6 +22,33 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1c2fa"]
 gradient = SubResource("Gradient_7mjwi")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lidb"]
+
+[sub_resource type="Gradient" id="Gradient_xkbvb"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_mpno0"]
+gradient = SubResource("Gradient_xkbvb")
+width = 20
+height = 20
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_afgy7"]
+shader = ExtResource("5_6m6pc")
+shader_parameter/pos = Vector2(87, 147)
+shader_parameter/fwd_vec = Vector2(1, 0)
+shader_parameter/rads = 1.0
+
+[sub_resource type="Gradient" id="Gradient_j2klx"]
+offsets = PackedFloat32Array(0, 0.654762)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s3327"]
+gradient = SubResource("Gradient_j2klx")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="Main" type="Node2D"]
 
@@ -59,3 +88,19 @@ scale = Vector2(11.0469, 11.0156)
 energy = 0.5
 range_item_cull_mask = 4
 texture = SubResource("GradientTexture2D_1c2fa")
+
+[node name="CharacterBody2D2" type="CharacterBody2D" parent="." node_paths=PackedStringArray("player")]
+position = Vector2(87, 147)
+script = ExtResource("4_7mueo")
+player = NodePath("../CharacterBody2D")
+max_degrees = 90.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
+shape = SubResource("RectangleShape2D_8lidb")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
+texture = SubResource("GradientTexture2D_mpno0")
+
+[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D2"]
+material = SubResource("ShaderMaterial_afgy7")
+texture = SubResource("GradientTexture2D_s3327")
