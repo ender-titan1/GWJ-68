@@ -23,6 +23,25 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1c2fa"]
 gradient = SubResource("Gradient_7mjwi")
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_afgy7"]
+shader = ExtResource("5_6m6pc")
+shader_parameter/pos = Vector2(87, 147)
+shader_parameter/fwd_vec = Vector2(1, 0)
+shader_parameter/rads = 0.405
+shader_parameter/range = 20.0
+shader_parameter/color = Color(1, 1, 0, 1)
+
+[sub_resource type="Gradient" id="Gradient_j2klx"]
+offsets = PackedFloat32Array(0, 0.761905)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_s3327"]
+gradient = SubResource("Gradient_j2klx")
+width = 128
+height = 128
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8lidb"]
 
 [sub_resource type="Gradient" id="Gradient_xkbvb"]
@@ -32,24 +51,6 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 gradient = SubResource("Gradient_xkbvb")
 width = 20
 height = 20
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_afgy7"]
-shader = ExtResource("5_6m6pc")
-shader_parameter/pos = Vector2(87, 147)
-shader_parameter/fwd_vec = Vector2(1, 0)
-shader_parameter/rads = 1.0
-shader_parameter/range = null
-
-[sub_resource type="Gradient" id="Gradient_j2klx"]
-offsets = PackedFloat32Array(0, 0.52381)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_s3327"]
-gradient = SubResource("Gradient_j2klx")
-width = 128
-height = 128
-fill = 1
-fill_from = Vector2(0.5, 0.5)
 
 [node name="Main" type="Node2D"]
 
@@ -94,14 +95,16 @@ texture = SubResource("GradientTexture2D_1c2fa")
 position = Vector2(87, 147)
 script = ExtResource("4_7mueo")
 player = NodePath("../CharacterBody2D")
-max_degrees = 90.0
+vision_range = 60.0
+max_degrees = 45.0
+vision_cone_multiplier = 1.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D2"]
+material = SubResource("ShaderMaterial_afgy7")
+texture = SubResource("GradientTexture2D_s3327")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
 shape = SubResource("RectangleShape2D_8lidb")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
 texture = SubResource("GradientTexture2D_mpno0")
-
-[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D2"]
-material = SubResource("ShaderMaterial_afgy7")
-texture = SubResource("GradientTexture2D_s3327")
