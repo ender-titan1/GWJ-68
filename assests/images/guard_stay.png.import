@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brqydmlj7vcx1"
-path="res://.godot/imported/player_down.png-5034cfc3e951601a87680f269ce2a6ec.ctex"
+uid="uid://ciu3sqho6cchb"
+path="res://.godot/imported/guard_stay.png-212c55df6a8719f9f95d7131901c67ec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assests/images/player_down.png"
-dest_files=["res://.godot/imported/player_down.png-5034cfc3e951601a87680f269ce2a6ec.ctex"]
+source_file="res://assests/images/guard_stay.png"
+dest_files=["res://.godot/imported/guard_stay.png-212c55df6a8719f9f95d7131901c67ec.ctex"]
 
 [params]
 

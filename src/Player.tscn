@@ -34,7 +34,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -51,7 +51,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking_down",
-"speed": 5.0
+"speed": 8.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -68,7 +68,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walking_up",
-"speed": 8.0
+"speed": 16.0
 }]
 
 [sub_resource type="Gradient" id="Gradient_j8ymr"]
@@ -99,7 +99,7 @@ shape = SubResource("RectangleShape2D_sq3eb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 sprite_frames = SubResource("SpriteFrames_1tk47")
-animation = &"walking_down"
+animation = &"walking"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-2, 1)
