@@ -1,10 +1,9 @@
-[gd_scene load_steps=16 format=3 uid="uid://cv1oxsg816gik"]
+[gd_scene load_steps=10 format=3 uid="uid://cv1oxsg816gik"]
 
 [ext_resource type="TileSet" uid="uid://4oe0bsyb8e6g" path="res://assests/tilesets/main_tileset.tres" id="2_ijvnj"]
-[ext_resource type="Script" path="res://src/camera_follow.gd" id="3_7uhex"]
 [ext_resource type="PackedScene" uid="uid://dknboq6y3rert" path="res://src/Player.tscn" id="3_hfxqu"]
-[ext_resource type="Script" path="res://src/patrol.gd" id="4_7mueo"]
-[ext_resource type="Shader" path="res://src/light_cone.gdshader" id="5_6m6pc"]
+[ext_resource type="Script" path="res://src/light.gd" id="3_wer08"]
+[ext_resource type="PackedScene" uid="uid://5jyhgl4afx51" path="res://src/Guard.tscn" id="4_mb7rn"]
 
 [sub_resource type="Gradient" id="Gradient_di71a"]
 offsets = PackedFloat32Array(0, 0.625)
@@ -17,45 +16,20 @@ height = 320
 fill = 1
 fill_from = Vector2(0.5, 0.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_o161s"]
+radius = 1.0
+
 [sub_resource type="Gradient" id="Gradient_7mjwi"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_1c2fa"]
 gradient = SubResource("Gradient_7mjwi")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_afgy7"]
-shader = ExtResource("5_6m6pc")
-shader_parameter/pos = Vector2(111, 196)
-shader_parameter/fwd_vec = Vector2(1, 0)
-shader_parameter/rads = 0.405
-shader_parameter/range = 20.0
-shader_parameter/color = Color(1, 1, 0, 1)
-
-[sub_resource type="Gradient" id="Gradient_j2klx"]
-offsets = PackedFloat32Array(0, 0.761905)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_s3327"]
-gradient = SubResource("Gradient_j2klx")
-width = 128
-height = 128
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8lidb"]
-
-[sub_resource type="Gradient" id="Gradient_xkbvb"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_mpno0"]
-gradient = SubResource("Gradient_xkbvb")
-width = 20
-height = 20
-
 [node name="Main" type="Node2D"]
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("3_hfxqu")]
+[node name="Player" parent="." instance=ExtResource("3_hfxqu")]
 position = Vector2(106, 232)
+speed = 65.0
 
 [node name="Background" type="TileMap" parent="."]
 tile_set = ExtResource("2_ijvnj")
@@ -69,20 +43,39 @@ format = 2
 layer_0/tile_data = PackedInt32Array(393220, 1, 3, 458756, 1, 4, 524292, 1, 4, 589828, 1, 4, 655364, 1, 4, 720900, 1, 4, 786436, 1, 4, 851972, 1, 5, 393221, 131073, 3, 458757, 131073, 4, 524293, 131073, 4, 589829, 131073, 4, 655365, 131073, 4, 720901, 131073, 4, 786437, 131073, 4, 851973, 131073, 5, 589833, 1, 3, 655369, 1, 5, 851977, 1, 3, 917513, 1, 5, 458762, 65537, 4, 589834, 65537, 3, 655370, 65537, 5, 851978, 65537, 3, 917514, 65537, 5, 589835, 65537, 3, 655371, 65537, 5, 851979, 65537, 3, 917515, 65537, 5, 327692, 65537, 4, 458764, 65537, 4, 589836, 65537, 3, 655372, 65537, 5, 851980, 65537, 3, 917516, 65537, 5, 589837, 65537, 3, 655373, 65537, 5, 851981, 65537, 3, 917517, 65537, 5, 1048589, 1, 3, 1114125, 1, 4, 1179661, 1, 4, 1245197, 1, 4, 589838, 65537, 3, 655374, 65537, 5, 851982, 65537, 3, 917518, 65537, 5, 1048590, 131073, 3, 1114126, 131073, 4, 1179662, 131073, 4, 1245198, 131073, 4, 589839, 65537, 3, 655375, 65537, 5, 851983, 65537, 3, 917519, 65537, 5, 589840, 65537, 3, 655376, 65537, 5, 851984, 65537, 3, 589841, 65537, 3, 655377, 65537, 5, 851985, 65537, 3, 917521, 196609, 4, 983057, 1, 4, 1048593, 1, 4, 1114129, 1, 4, 1179665, 1, 5, 589842, 65537, 3, 655378, 65537, 5, 851986, 65537, 3, 917522, 262145, 4, 983058, 131073, 4, 1048594, 131073, 4, 1114130, 131073, 4, 1179666, 131073, 5, 589843, 65537, 3, 655379, 65537, 5, 851987, 65537, 3, 917523, 65537, 5, -65536, 65537, 5, -65535, 65537, 5, -65534, 65537, 5, -65533, 65537, 5, -65532, 65537, 5, -65531, 65537, 5, -65530, 65537, 5, -65529, 65537, 5, -65528, 65537, 5, -65527, 65537, 5, -65526, 65537, 5, -65525, 65537, 5, -65524, 65537, 5, -65523, 65537, 5, -65522, 65537, 5, -65521, 65537, 5, -65520, 65537, 5, -65519, 65537, 5, -65518, 65537, 5, -65517, 65537, 5, 20, 1, 4, 65556, 1, 4, 131092, 1, 4, 196628, 1, 4, 262164, 1, 4, 327700, 1, 4, 393236, 1, 4, 458772, 1, 4, 524308, 1, 4, 589844, 196609, 3, 655380, 196609, 4, 720916, 1, 4, 786452, 1, 4, 851988, 196609, 3, 917524, 196609, 4, 983060, 1, 4, 1048596, 1, 4, 1114132, 1, 4, 1179668, 1, 4, 1245204, 1, 4, 1310740, 196609, 3, 1310739, 65537, 3, 1310738, 65537, 3, 1310737, 65537, 3, 1310736, 65537, 3, 1310735, 65537, 3, 1310734, 262145, 3, 1310733, 196609, 3, 1310732, 65537, 3, 1310731, 65537, 3, 1310730, 65537, 3, 1310729, 65537, 3, 1310728, 65537, 3, 1310727, 65537, 3, 1310726, 65537, 3, 1310725, 65537, 3, 1310724, 65537, 3, 1310723, 65537, 3, 1310722, 65537, 3, 1310721, 65537, 3, 1310720, 65537, 3, 1376255, 262145, 3, 1310719, 131073, 4, 1245183, 131073, 4, 1179647, 131073, 4, 1114111, 131073, 4, 1048575, 131073, 4, 983039, 131073, 4, 917503, 131073, 4, 851967, 131073, 4, 786431, 131073, 4, 720895, 131073, 4, 655359, 131073, 4, 589823, 131073, 4, 524287, 131073, 4, 458751, 131073, 4, 393215, 131073, 4, 327679, 131073, 4, 262143, 131073, 4, 196607, 131073, 4, 65535, 131073, 4, -1, 262145, 4, -65516, 196609, 4, 917520, 65537, 5, 131071, 131073, 4, 327690, 65537, 4)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, 1)
-zoom = Vector2(5, 5)
-script = ExtResource("3_7uhex")
+position = Vector2(323, 170)
+zoom = Vector2(3, 3)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 light_mask = 0
 position = Vector2(-3, 0)
 color = Color(0, 0, 0, 1)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." groups=["lights"]]
 position = Vector2(511, 501)
 energy = 2.0
 shadow_enabled = true
 texture = SubResource("GradientTexture2D_cb647")
+script = ExtResource("3_wer08")
+
+[node name="Area2D" type="Area2D" parent="PointLight2D"]
+collision_layer = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D/Area2D"]
+shape = SubResource("CircleShape2D_o161s")
+
+[node name="PointLight2D2" type="PointLight2D" parent="." groups=["lights"]]
+position = Vector2(213, 201)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_cb647")
+script = ExtResource("3_wer08")
+
+[node name="Area2D2" type="Area2D" parent="PointLight2D2"]
+collision_layer = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D2/Area2D2"]
+shape = SubResource("CircleShape2D_o161s")
 
 [node name="WallLight" type="PointLight2D" parent="."]
 position = Vector2(321.5, 320.5)
@@ -91,20 +84,6 @@ energy = 0.5
 range_item_cull_mask = 4
 texture = SubResource("GradientTexture2D_1c2fa")
 
-[node name="CharacterBody2D2" type="CharacterBody2D" parent="." node_paths=PackedStringArray("player")]
-position = Vector2(111, 196)
-script = ExtResource("4_7mueo")
-player = NodePath("../CharacterBody2D")
-vision_range = 60.0
-max_degrees = 45.0
-vision_cone_multiplier = 1.0
-
-[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D2"]
-material = SubResource("ShaderMaterial_afgy7")
-texture = SubResource("GradientTexture2D_s3327")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D2"]
-shape = SubResource("RectangleShape2D_8lidb")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D2"]
-texture = SubResource("GradientTexture2D_mpno0")
+[node name="Guard" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_mb7rn")]
+player = NodePath("../Player")
+max_degrees = 30.0
