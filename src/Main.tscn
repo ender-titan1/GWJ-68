@@ -1,23 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://cv1oxsg816gik"]
+[gd_scene load_steps=7 format=3 uid="uid://cv1oxsg816gik"]
 
 [ext_resource type="TileSet" uid="uid://4oe0bsyb8e6g" path="res://assests/tilesets/main_tileset.tres" id="2_ijvnj"]
+[ext_resource type="PackedScene" uid="uid://chacmpuix6w0i" path="res://src/Light.tscn" id="3_0r7qo"]
 [ext_resource type="PackedScene" uid="uid://dknboq6y3rert" path="res://src/Player.tscn" id="3_hfxqu"]
-[ext_resource type="Script" path="res://src/light.gd" id="3_wer08"]
 [ext_resource type="PackedScene" uid="uid://5jyhgl4afx51" path="res://src/Guard.tscn" id="4_mb7rn"]
-
-[sub_resource type="Gradient" id="Gradient_di71a"]
-offsets = PackedFloat32Array(0, 0.625)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_cb647"]
-gradient = SubResource("Gradient_di71a")
-width = 320
-height = 320
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_o161s"]
-radius = 1.0
 
 [sub_resource type="Gradient" id="Gradient_7mjwi"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -51,31 +37,7 @@ light_mask = 0
 position = Vector2(-3, 0)
 color = Color(0, 0, 0, 1)
 
-[node name="PointLight2D" type="PointLight2D" parent="." groups=["lights"]]
-position = Vector2(511, 501)
-energy = 2.0
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_cb647")
-script = ExtResource("3_wer08")
-
-[node name="Area2D" type="Area2D" parent="PointLight2D"]
-collision_layer = 256
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D/Area2D"]
-shape = SubResource("CircleShape2D_o161s")
-
-[node name="PointLight2D2" type="PointLight2D" parent="." groups=["lights"]]
-position = Vector2(213, 201)
-energy = 2.0
-shadow_enabled = true
-texture = SubResource("GradientTexture2D_cb647")
-script = ExtResource("3_wer08")
-
-[node name="Area2D2" type="Area2D" parent="PointLight2D2"]
-collision_layer = 256
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PointLight2D2/Area2D2"]
-shape = SubResource("CircleShape2D_o161s")
+[node name="PointLight2D" parent="." instance=ExtResource("3_0r7qo")]
 
 [node name="WallLight" type="PointLight2D" parent="."]
 position = Vector2(321.5, 320.5)
@@ -87,3 +49,6 @@ texture = SubResource("GradientTexture2D_1c2fa")
 [node name="Guard" parent="." node_paths=PackedStringArray("player") instance=ExtResource("4_mb7rn")]
 player = NodePath("../Player")
 max_degrees = 30.0
+
+[node name="PointLight2D2" parent="." instance=ExtResource("3_0r7qo")]
+position = Vector2(226, 212)
