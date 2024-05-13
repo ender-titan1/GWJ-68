@@ -26,5 +26,4 @@ func _physics_process(delta):
 
 
 	if dir == Vector2.ZERO:
-		$AnimatedSprite2D.stop()
-		$AnimatedSprite2D.set_
+		$AnimatedSprite2D.play("idle")
