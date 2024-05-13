@@ -13,12 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://b5ont4q4n0x6h" path="res://assests/images/player_anim/walking_down/pixil-frame-2.png" id="8_81ooy"]
 [ext_resource type="Texture2D" uid="uid://b4fbsxjgfyepf" path="res://assests/images/player_anim/walking_down/pixil-frame-3.png" id="9_raiyg"]
 [ext_resource type="Texture2D" uid="uid://cripbhe3ajmcg" path="res://assests/images/player_anim/walking_side/player_side3.png" id="9_uf7d2"]
-[ext_resource type="Texture2D" uid="uid://brbybihpa3vh1" path="res://assests/images/player_anim/player_up1.png" id="10_6aouk"]
+[ext_resource type="Texture2D" path="res://assests/images/player_anim/player_up1.png" id="10_6aouk"]
 [ext_resource type="Texture2D" uid="uid://ci3i8eaa3d57n" path="res://assests/images/player_anim/walking_side/player_side4.png" id="10_brpog"]
-[ext_resource type="Texture2D" uid="uid://c70jdrcln7h0n" path="res://assests/images/player_anim/player_up2.png" id="11_6t1id"]
+[ext_resource type="Texture2D" path="res://assests/images/player_anim/player_up2.png" id="11_6t1id"]
 [ext_resource type="Texture2D" uid="uid://kj4evl6yv7a0" path="res://assests/images/player_anim/walking_side/player_side5.png" id="11_40sch"]
-[ext_resource type="Texture2D" uid="uid://brgckxfy3r3pw" path="res://assests/images/player_anim/player_up3.png" id="12_ypkig"]
-[ext_resource type="Texture2D" uid="uid://db4vukmlseirw" path="res://assests/images/player_anim/player_up4.png" id="13_0kaa4"]
+[ext_resource type="Texture2D" path="res://assests/images/player_anim/player_up3.png" id="12_ypkig"]
+[ext_resource type="Texture2D" path="res://assests/images/player_anim/player_up4.png" id="13_0kaa4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mw18u"]
 radius = 7.65

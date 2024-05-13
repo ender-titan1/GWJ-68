@@ -32,12 +32,11 @@ func _physics_process(delta):
 
 func check_in_shadow() -> bool:
 	# Get constants
-	var light_group = $"/root/Constants".LIGHT_GROUP
-	var raycast_mask = $"/root/Constants".LIGHT_RAYCAST_MASK
+	var light_group = Constants.LIGHT_GROUP
+	var raycast_mask = Constants.LIGHT_RAYCAST_MASK
 
 	# Get world info
-	var lights = get_tree().get_nodes_in_group(light_group)
-	var world = get_world_2d().direct_space_state
+	var lights := get_tree().get_nodes_in_group(light_group)
 	var in_shadow = true
 	
 	# Iterate through all present lights in the scene
@@ -52,14 +51,10 @@ func check_in_shadow() -> bool:
 			continue
 		
 		# Then raycast to the light to see if we are not standing in a shadow
-		var query = PhysicsRayQueryParameters2D.create(
-			global_position, light.global_position, raycast_mask)
-		query.collide_with_areas = true
-		var result = world.intersect_ray(query)
+		var res = Util.raycast(self, global_position, light.global_position, light_mask, true)
 		
-		if result:
-			var collider = result.collider
-			if in_shadow && collider.get_node("..").is_in_group(light_group):
+		if res[0]:
+			if in_shadow && res[1].get_node("..").is_in_group(light_group):
 				in_shadow = false
 				break
 	

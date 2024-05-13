@@ -1,7 +1,7 @@
 extends PointLight2D
 
 @export var range_multiplier: float = 0.0
-@onready var default_range_mul: float = $"/root/Constants".DEFAULT_LIGHT_RANGE_MULTIPLIER
+@onready var default_range_mul: float = Constants.DEFAULT_LIGHT_RANGE_MULTIPLIER
 
 var range: float
 

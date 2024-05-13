@@ -67,30 +67,12 @@ func _physics_process(_delta):
 	vision_cone.material.set_shader_parameter("fwd_vec", forward_vector)
 	
 func player_in_cone() -> bool:
-	var player_pos = player.position
-	var dist = player_pos.distance_to(position)
-	
-	if dist > vision_range:
-		return false
-	
-	# using the formula for degree between two vectors:
-	# cos(a) = (u . v) / (|u| * |v|)
-	
-	var vector_to_player = (player_pos - position).normalized()
-	var dot = vector_to_player.dot(forward_vector)
-	
-	# Since both vector are normalized, no need to calculate magnitude
-	var angle = acos(dot / 1)
-	
-	return angle <= max_radians
+	return Util.in_vision_cone(self, player, forward_vector, max_radians, vision_range)
 	
 func line_of_sight(target: CollisionObject2D):
-	var world = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(global_position, target.global_position, $"/root/Constants".RAYCAST_MASK)
-	var result = world.intersect_ray(query)
-	
-	if result:
-		var collider = result.collider
-		return collider.name == target.name
+	var res = Util.raycast(self, global_position, target.global_position, Constants.RAYCAST_MASK)
+
+	if res[0]:
+		return res[1].name == target.name
 	
 	return false
