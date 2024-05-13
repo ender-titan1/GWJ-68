@@ -21,6 +21,11 @@ size = Vector2(16, 30)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1tk47"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("6_it7bu")
@@ -108,7 +113,7 @@ shape = SubResource("RectangleShape2D_sq3eb")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 sprite_frames = SubResource("SpriteFrames_1tk47")
-animation = &"walking_up"
+animation = &"idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(-2, 1)
