@@ -1,6 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://dknboq6y3rert"]
+[gd_scene load_steps=26 format=3 uid="uid://dknboq6y3rert"]
 
 [ext_resource type="Script" path="res://src/player.gd" id="1_n1n7r"]
+[ext_resource type="Texture2D" uid="uid://ddpvf5cpbux1e" path="res://assests/images/player_anim/player_idle1.png" id="2_ux8pv"]
+[ext_resource type="Texture2D" uid="uid://cln82xrc6xhv6" path="res://assests/images/player_anim/player_idle2.png" id="3_pfr8t"]
+[ext_resource type="Texture2D" uid="uid://b6rlje067n6ia" path="res://assests/images/player_anim/player_idle3.png" id="4_h461m"]
+[ext_resource type="Texture2D" uid="uid://ctcbrcdnjw6kc" path="res://assests/images/player_anim/player_idle4.png" id="5_0o203"]
 [ext_resource type="Texture2D" uid="uid://dw7enwp1iisgm" path="res://assests/images/player_anim/walking_down/pixil-frame-0.png" id="6_it7bu"]
 [ext_resource type="Texture2D" uid="uid://btgjdi244m2g3" path="res://assests/images/player_anim/walking_side/player_side0.png" id="6_w3tsl"]
 [ext_resource type="Texture2D" uid="uid://dbmtq1qb4nh7" path="res://assests/images/player_anim/walking_down/pixil-frame-1.png" id="7_bmoip"]
@@ -22,6 +26,23 @@ height = 34.48
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1tk47"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ux8pv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_pfr8t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_h461m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_0o203")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("6_it7bu")
@@ -110,9 +131,7 @@ shape = SubResource("CapsuleShape2D_mw18u")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 sprite_frames = SubResource("SpriteFrames_1tk47")
-animation = &"walking_side"
-frame = 4
-frame_progress = 0.0888433
+animation = &"idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false

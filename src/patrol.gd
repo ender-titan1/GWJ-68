@@ -49,7 +49,7 @@ func generate_texture():
 	
 	vision_cone.texture = texture
 
-func _process(delta):
+func _process(_delta):
 	var spotted = player_in_cone() && line_of_sight(player)
 	
 	if spotted:
@@ -57,7 +57,7 @@ func _process(delta):
 	else:
 		vision_cone.material.set_shader_parameter("color", Color.AQUA)
 	
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Update the shader's position 
 	vision_cone.material.set_shader_parameter("pos", position)
 	
