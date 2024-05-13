@@ -50,7 +50,7 @@ func generate_texture():
 	vision_cone.texture = texture
 
 func _process(_delta):
-	var spotted = player_in_cone() && line_of_sight(player.get_node("CollisionShape2D"))
+	var spotted = player_in_cone() && line_of_sight(player)
 	
 	if spotted:
 		vision_cone.material.set_shader_parameter("color", Color.RED)
@@ -84,15 +84,13 @@ func player_in_cone() -> bool:
 	
 	return angle <= max_radians
 	
-func line_of_sight(target: CollisionShape2D):
+func line_of_sight(target: CollisionObject2D):
 	var world = get_world_2d().direct_space_state
-	var query = PhysicsRayQueryParameters2D.create(global_position, target.global_position)
+	var query = PhysicsRayQueryParameters2D.create(global_position, target.global_position, $"/root/Constants".RAYCAST_MASK)
 	var result = world.intersect_ray(query)
-	
-	print(result.collider)
 	
 	if result:
 		var collider = result.collider
-		return collider == target
+		return collider.name == target.name
 	
 	return false

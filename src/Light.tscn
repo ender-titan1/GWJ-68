@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://chacmpuix6w0i"]
+
+[ext_resource type="Script" path="res://src/light.gd" id="1_8jtbd"]
+
+[sub_resource type="Gradient" id="Gradient_di71a"]
+offsets = PackedFloat32Array(0, 0.625)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cb647"]
+gradient = SubResource("Gradient_di71a")
+width = 320
+height = 320
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o161s"]
+radius = 1.0
+
+[node name="PointLight2D" type="PointLight2D" groups=["lights"]]
+position = Vector2(511, 501)
+energy = 2.0
+shadow_enabled = true
+texture = SubResource("GradientTexture2D_cb647")
+script = ExtResource("1_8jtbd")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_o161s")

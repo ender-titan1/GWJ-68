@@ -13,15 +13,16 @@
 [ext_resource type="Texture2D" uid="uid://b5ont4q4n0x6h" path="res://assests/images/player_anim/walking_down/pixil-frame-2.png" id="8_81ooy"]
 [ext_resource type="Texture2D" uid="uid://b4fbsxjgfyepf" path="res://assests/images/player_anim/walking_down/pixil-frame-3.png" id="9_raiyg"]
 [ext_resource type="Texture2D" uid="uid://cripbhe3ajmcg" path="res://assests/images/player_anim/walking_side/player_side3.png" id="9_uf7d2"]
+[ext_resource type="Texture2D" uid="uid://brbybihpa3vh1" path="res://assests/images/player_anim/player_up1.png" id="10_6aouk"]
 [ext_resource type="Texture2D" uid="uid://ci3i8eaa3d57n" path="res://assests/images/player_anim/walking_side/player_side4.png" id="10_brpog"]
+[ext_resource type="Texture2D" uid="uid://c70jdrcln7h0n" path="res://assests/images/player_anim/player_up2.png" id="11_6t1id"]
 [ext_resource type="Texture2D" uid="uid://kj4evl6yv7a0" path="res://assests/images/player_anim/walking_side/player_side5.png" id="11_40sch"]
-[ext_resource type="Texture2D" uid="uid://beeap5tmhmwaf" path="res://assests/images/player_anim/walk_upward/pixil-frame-0.png" id="12_ahxv2"]
-[ext_resource type="Texture2D" uid="uid://dah5176578bl6" path="res://assests/images/player_anim/walk_upward/pixil-frame-1.png" id="13_dhxhn"]
-[ext_resource type="Texture2D" uid="uid://c0f77pspgqq1i" path="res://assests/images/player_anim/walk_upward/pixil-frame-2.png" id="14_pw753"]
-[ext_resource type="Texture2D" uid="uid://bjflbnfccd5yf" path="res://assests/images/player_anim/walk_upward/pixil-frame-3.png" id="15_cxati"]
+[ext_resource type="Texture2D" uid="uid://brgckxfy3r3pw" path="res://assests/images/player_anim/player_up3.png" id="12_ypkig"]
+[ext_resource type="Texture2D" uid="uid://db4vukmlseirw" path="res://assests/images/player_anim/player_up4.png" id="13_0kaa4"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sq3eb"]
-size = Vector2(16, 30)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mw18u"]
+radius = 7.65
+height = 34.48
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1tk47"]
 animations = [{
@@ -84,20 +85,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("12_ahxv2")
+"texture": ExtResource("10_6aouk")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_dhxhn")
+"texture": ExtResource("11_6t1id")
 }, {
 "duration": 1.0,
-"texture": ExtResource("14_pw753")
+"texture": ExtResource("12_ypkig")
 }, {
 "duration": 1.0,
-"texture": ExtResource("15_cxati")
+"texture": ExtResource("13_0kaa4")
 }],
 "loop": true,
 "name": &"walking_up",
-"speed": 5.0
+"speed": 16.0
 }]
 
 [sub_resource type="Gradient" id="Gradient_j8ymr"]
@@ -124,7 +125,8 @@ collision_layer = 129
 script = ExtResource("1_n1n7r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_sq3eb")
+position = Vector2(0, 0.955)
+shape = SubResource("CapsuleShape2D_mw18u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
@@ -132,6 +134,7 @@ sprite_frames = SubResource("SpriteFrames_1tk47")
 animation = &"idle"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(-2, 1)
 energy = 0.35
 shadow_enabled = true

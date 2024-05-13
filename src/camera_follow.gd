@@ -1,6 +1,6 @@
 extends Camera2D
 
-@onready var Player = $"../CharacterBody2D"
+@onready var Player = $"../Player"
 
 func _process(_delta):
 	# this makes sure that the camera cannot go out of bounds the map, assuming the map starts at 0,0.
