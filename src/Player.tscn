@@ -131,7 +131,7 @@ shape = SubResource("CapsuleShape2D_mw18u")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 sprite_frames = SubResource("SpriteFrames_1tk47")
-animation = &"idle"
+animation = &"walking_up"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false

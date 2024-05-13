@@ -42,7 +42,6 @@ func check_in_shadow() -> bool:
 	# Iterate through all present lights in the scene
 	for light in lights:
 		# First, check if player is in range of the light
-
 		var range_sq = light.range*light.range
 		var dist_sq = global_position.distance_squared_to(light.position)
 		
@@ -51,7 +50,7 @@ func check_in_shadow() -> bool:
 			continue
 		
 		# Then raycast to the light to see if we are not standing in a shadow
-		var res = Util.raycast(self, global_position, light.global_position, light_mask, true)
+		var res = Util.raycast(self, global_position, light.global_position, raycast_mask, true)
 		
 		if res[0]:
 			if in_shadow && res[1].get_node("..").is_in_group(light_group):
