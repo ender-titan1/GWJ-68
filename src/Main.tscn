@@ -33,6 +33,7 @@ position = Vector2(323, 170)
 zoom = Vector2(3, 3)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 light_mask = 0
 position = Vector2(-3, 0)
 color = Color(0, 0, 0, 1)

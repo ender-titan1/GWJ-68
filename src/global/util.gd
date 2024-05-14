@@ -36,3 +36,32 @@ func in_vision_cone(soruce: CanvasItem,
 	var angle = acos(dot / 1)
 	
 	return angle <= max_radians
+
+func pos_in_shadow(canvas_item: CanvasItem, pos: Vector2) -> bool:
+	# Get constants
+	var light_group = Constants.LIGHT_GROUP
+	var raycast_mask = Constants.LIGHT_RAYCAST_MASK
+
+	# Get world info
+	var lights := get_tree().get_nodes_in_group(light_group)
+	var in_shadow = true
+	
+	# Iterate through all present lights in the scene
+	for light in lights:
+		# First, check if player is in range of the light
+		var range_sq = light.range*light.range
+		var dist_sq = pos.distance_squared_to(light.position)
+		
+		# If not, it means it is not in its light
+		if dist_sq > range_sq:
+			continue
+		
+		# Then raycast to the light to see if we are not standing in a shadow
+		var res = Util.raycast(canvas_item, pos, light.global_position, raycast_mask, true)
+		
+		if res[0]:
+			if in_shadow && res[1].get_node("..").is_in_group(light_group):
+				in_shadow = false
+				break
+	
+	return in_shadow

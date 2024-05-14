@@ -1,8 +1,10 @@
 extends CharacterBody2D
 
 @export var speed: float = 50.0
-
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+var dash_input: bool = false
+var can_dash: bool = true
 
 func _physics_process(delta):
 	var x_axis = Input.get_axis("player_move_left", "player_move_right")
@@ -30,31 +32,35 @@ func _physics_process(delta):
 	if dir == Vector2.ZERO:
 		sprite.play("idle")
 
-func check_in_shadow() -> bool:
-	# Get constants
-	var light_group = Constants.LIGHT_GROUP
-	var raycast_mask = Constants.LIGHT_RAYCAST_MASK
+func _process(_delta):
+	if dash_input:
+		var in_shadow = Util.pos_in_shadow(self, global_position)
 
-	# Get world info
-	var lights := get_tree().get_nodes_in_group(light_group)
-	var in_shadow = true
+		if !in_shadow:
+			can_dash = false
+			return
+
+		var target = get_global_mouse_position()
+		var result = Util.raycast(self, global_position, target, Constants.RAYCAST_MASK)
+
+		# We want to check if nothing in in the way or at the end of the dash
+		if result[0]:
+			can_dash = false
+			return
+
+		can_dash = true
+
+
+
+func _input(event):
+	if event.is_action_pressed("player_move_special"):
+		dash_input = true
+		queue_redraw()
 	
-	# Iterate through all present lights in the scene
-	for light in lights:
-		# First, check if player is in range of the light
-		var range_sq = light.range*light.range
-		var dist_sq = global_position.distance_squared_to(light.position)
-		
-		# If not, it means it is not in its light
-		if dist_sq > range_sq:
-			continue
-		
-		# Then raycast to the light to see if we are not standing in a shadow
-		var res = Util.raycast(self, global_position, light.global_position, raycast_mask, true)
-		
-		if res[0]:
-			if in_shadow && res[1].get_node("..").is_in_group(light_group):
-				in_shadow = false
-				break
-	
-	return in_shadow
+	if event.is_action_released("player_move_special"):
+		dash_input = false
+		queue_redraw()
+
+func _draw():
+	if dash_input:
+		draw_arc(Vector2.ZERO, 100, 0, TAU, 180, Color.GREEN)

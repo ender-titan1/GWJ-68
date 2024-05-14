@@ -22,7 +22,6 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mw18u"]
 radius = 7.65
-height = 34.48
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1tk47"]
 animations = [{
@@ -125,13 +124,14 @@ collision_layer = 129
 script = ExtResource("1_n1n7r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.955)
+position = Vector2(0, -1.38)
 shape = SubResource("CapsuleShape2D_mw18u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 2
 sprite_frames = SubResource("SpriteFrames_1tk47")
 animation = &"walking_up"
+frame_progress = 0.151278
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false
