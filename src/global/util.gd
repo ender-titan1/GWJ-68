@@ -17,13 +17,13 @@ func raycast(canvas_item: CanvasItem,
 		return [true, result.collider]
 
 func in_vision_cone(soruce: CanvasItem,
-	target: CanvasItem, forward_vector: Vector2, max_radians: float, range: float) -> bool:
+	target: CanvasItem, forward_vector: Vector2, max_radians: float, _range: float) -> bool:
 	
 	var pos = soruce.position
 	var target_pos = target.position
 	var dist = target_pos.distance_to(pos)
 	
-	if dist > range:
+	if dist > _range:
 		return false
 	
 	# using the formula for degree between two vectors:
