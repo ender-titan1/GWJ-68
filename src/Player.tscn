@@ -13,12 +13,12 @@
 [ext_resource type="Texture2D" uid="uid://b5ont4q4n0x6h" path="res://assests/images/player_anim/walking_down/pixil-frame-2.png" id="8_81ooy"]
 [ext_resource type="Texture2D" uid="uid://b4fbsxjgfyepf" path="res://assests/images/player_anim/walking_down/pixil-frame-3.png" id="9_raiyg"]
 [ext_resource type="Texture2D" uid="uid://cripbhe3ajmcg" path="res://assests/images/player_anim/walking_side/player_side3.png" id="9_uf7d2"]
-[ext_resource type="Texture2D" path="res://assests/images/player_anim/player_up1.png" id="10_6aouk"]
 [ext_resource type="Texture2D" uid="uid://ci3i8eaa3d57n" path="res://assests/images/player_anim/walking_side/player_side4.png" id="10_brpog"]
-[ext_resource type="Texture2D" path="res://assests/images/player_anim/player_up2.png" id="11_6t1id"]
 [ext_resource type="Texture2D" uid="uid://kj4evl6yv7a0" path="res://assests/images/player_anim/walking_side/player_side5.png" id="11_40sch"]
-[ext_resource type="Texture2D" path="res://assests/images/player_anim/player_up3.png" id="12_ypkig"]
-[ext_resource type="Texture2D" path="res://assests/images/player_anim/player_up4.png" id="13_0kaa4"]
+[ext_resource type="Texture2D" uid="uid://beeap5tmhmwaf" path="res://assests/images/player_anim/walk_upward/pixil-frame-0.png" id="16_uf22n"]
+[ext_resource type="Texture2D" uid="uid://dah5176578bl6" path="res://assests/images/player_anim/walk_upward/pixil-frame-1.png" id="17_5pant"]
+[ext_resource type="Texture2D" uid="uid://c0f77pspgqq1i" path="res://assests/images/player_anim/walk_upward/pixil-frame-2.png" id="18_n41k2"]
+[ext_resource type="Texture2D" uid="uid://bjflbnfccd5yf" path="res://assests/images/player_anim/walk_upward/pixil-frame-3.png" id="19_4jjgo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mw18u"]
 radius = 7.65
@@ -85,20 +85,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("10_6aouk")
+"texture": ExtResource("16_uf22n")
 }, {
 "duration": 1.0,
-"texture": ExtResource("11_6t1id")
+"texture": ExtResource("17_5pant")
 }, {
 "duration": 1.0,
-"texture": ExtResource("12_ypkig")
+"texture": ExtResource("18_n41k2")
 }, {
 "duration": 1.0,
-"texture": ExtResource("13_0kaa4")
+"texture": ExtResource("19_4jjgo")
 }],
 "loop": true,
 "name": &"walking_up",
-"speed": 16.0
+"speed": 8.0
 }]
 
 [sub_resource type="Gradient" id="Gradient_j8ymr"]
