@@ -1,4 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bifdw2sha60i6"]
+[gd_scene load_steps=5 format=3 uid="uid://bifdw2sha60i6"]
+
+[ext_resource type="Script" path="res://src/door.gd" id="1_oq1g3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tg2l7"]
 size = Vector2(20, 40)
@@ -9,6 +11,7 @@ size = Vector2(20, 40)
 size = Vector2(26, 40)
 
 [node name="StaticBody2D" type="StaticBody2D"]
+script = ExtResource("1_oq1g3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_tg2l7")
@@ -22,3 +25,5 @@ mesh = SubResource("BoxMesh_xu36p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_skerg")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
