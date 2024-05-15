@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://5jyhgl4afx51"]
 
 [ext_resource type="Script" path="res://src/patrol.gd" id="1_g7wyn"]
-[ext_resource type="Shader" path="res://src/light_cone.gdshader" id="2_voc6o"]
+[ext_resource type="Shader" path="res://src/shader/light_cone.gdshader" id="2_voc6o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_afgy7"]
 shader = ExtResource("2_voc6o")
@@ -32,10 +32,9 @@ gradient = SubResource("Gradient_xkbvb")
 width = 20
 height = 20
 
-[node name="Guard" type="CharacterBody2D" node_paths=PackedStringArray("player")]
+[node name="Guard" type="CharacterBody2D"]
 position = Vector2(71, 139)
 script = ExtResource("1_g7wyn")
-player = NodePath("")
 vision_range = 100.0
 max_degrees = 45.0
 vision_cone_multiplier = 1.0
